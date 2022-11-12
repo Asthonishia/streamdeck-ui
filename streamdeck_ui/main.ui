@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1258</width>
-    <height>768</height>
+    <width>888</width>
+    <height>860</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -77,7 +77,7 @@ color: #FFF;</string>
            <widget class="QComboBox" name="device_list">
             <property name="minimumSize">
              <size>
-              <width>920</width>
+              <width>580</width>
               <height>25</height>
              </size>
             </property>
@@ -127,20 +127,28 @@ color: #FFF;</string>
           </property>
           <property name="minimumSize">
            <size>
-            <width>0</width>
-            <height>470</height>
+            <width>580</width>
+            <height>400</height>
            </size>
           </property>
           <property name="autoFillBackground">
            <bool>false</bool>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color:#2C2C2C;border: none;</string>
+           <string notr="true">background-color:#2C2C2C;
+border-left: none;
+border-right: none;
+border-top: none;
+border-bottom: 1;
+border-bottom-color: #1C1C1C;</string>
           </property>
           <property name="currentIndex">
-           <number>9</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="page_1">
+           <property name="styleSheet">
+            <string notr="true">background-color:#2C2C2C;border: none;</string>
+           </property>
            <attribute name="title">
             <string>Page 1</string>
            </attribute>
@@ -160,54 +168,81 @@ color: #FFF;</string>
            </layout>
           </widget>
           <widget class="QWidget" name="page_2">
+           <property name="styleSheet">
+            <string notr="true">background-color:#2C2C2C;border: none;</string>
+           </property>
            <attribute name="title">
             <string>2</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_3"/>
           </widget>
           <widget class="QWidget" name="page_3">
+           <property name="styleSheet">
+            <string notr="true">background-color:#2C2C2C;border: none;</string>
+           </property>
            <attribute name="title">
             <string>3</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_11"/>
           </widget>
           <widget class="QWidget" name="page_4">
+           <property name="styleSheet">
+            <string notr="true">background-color:#2C2C2C;border: none;</string>
+           </property>
            <attribute name="title">
             <string>4</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_10"/>
           </widget>
           <widget class="QWidget" name="page_5">
+           <property name="styleSheet">
+            <string notr="true">background-color:#2C2C2C;border: none;</string>
+           </property>
            <attribute name="title">
             <string>5</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_9"/>
           </widget>
           <widget class="QWidget" name="page_6">
+           <property name="styleSheet">
+            <string notr="true">background-color:#2C2C2C;border: none;</string>
+           </property>
            <attribute name="title">
             <string>6</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_8"/>
           </widget>
           <widget class="QWidget" name="page_7">
+           <property name="styleSheet">
+            <string notr="true">background-color:#2C2C2C;border: none;</string>
+           </property>
            <attribute name="title">
             <string>7</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_7"/>
           </widget>
           <widget class="QWidget" name="page_8">
+           <property name="styleSheet">
+            <string notr="true">background-color:#2C2C2C;border: none;</string>
+           </property>
            <attribute name="title">
             <string>8</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_6"/>
           </widget>
           <widget class="QWidget" name="page_9">
+           <property name="styleSheet">
+            <string notr="true">background-color:#2C2C2C;border: none;</string>
+           </property>
            <attribute name="title">
             <string>9</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_5"/>
           </widget>
           <widget class="QWidget" name="tab_10">
+           <property name="styleSheet">
+            <string notr="true">background-color:#2C2C2C;border: none;</string>
+           </property>
            <attribute name="title">
             <string>10</string>
            </attribute>
@@ -219,8 +254,8 @@ color: #FFF;</string>
          <widget class="QGroupBox" name="groupBox">
           <property name="minimumSize">
            <size>
-            <width>920</width>
-            <height>0</height>
+            <width>580</width>
+            <height>368</height>
            </size>
           </property>
           <property name="styleSheet">
@@ -583,7 +618,7 @@ color: #FFF;</string>
        <widget class="QComboBox" name="comboBox">
         <property name="minimumSize">
          <size>
-          <width>280</width>
+          <width>250</width>
           <height>25</height>
          </size>
         </property>
@@ -601,7 +636,7 @@ color: #FFF;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1258</width>
+     <width>888</width>
      <height>22</height>
     </rect>
    </property>
