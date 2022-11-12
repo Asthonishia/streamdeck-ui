@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>888</width>
+    <width>890</width>
     <height>860</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>890</width>
+    <height>860</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Stream Deck UI</string>
@@ -16,6 +22,9 @@
   <property name="styleSheet">
    <string notr="true">background-color: #2C2C2C;
 color: #FFF;</string>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="autoFillBackground">
@@ -105,6 +114,9 @@ color: #FFF;</string>
               <width>30</width>
               <height>16777215</height>
              </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">margin-right:5;</string>
             </property>
             <property name="text">
              <string/>
@@ -614,18 +626,56 @@ border-bottom-color: #1C1C1C;</string>
         </item>
        </layout>
       </item>
-      <item alignment="Qt::AlignTop">
-       <widget class="QComboBox" name="comboBox">
-        <property name="minimumSize">
-         <size>
-          <width>250</width>
-          <height>25</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color:#3D3D3D;border: none;margin-left:9;</string>
-        </property>
-       </widget>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QGroupBox" name="groupBox_2">
+          <property name="minimumSize">
+           <size>
+            <width>250</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color:#242424;border: none;</string>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+          <widget class="QLineEdit" name="lineEdit_2">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>250</width>
+             <height>35</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="sizeIncrement">
+            <size>
+             <width>0</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="baseSize">
+            <size>
+             <width>0</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color:#383838;margin:5;border-radius:5;</string>
+           </property>
+          </widget>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>
@@ -636,7 +686,7 @@ border-bottom-color: #1C1C1C;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>888</width>
+     <width>890</width>
      <height>22</height>
     </rect>
    </property>

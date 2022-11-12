@@ -18,9 +18,11 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(888, 860)
+        MainWindow.resize(890, 860)
+        MainWindow.setMinimumSize(QSize(890, 860))
         MainWindow.setStyleSheet(u"background-color: #2C2C2C;\n"
 "color: #FFF;")
+        MainWindow.setTabShape(QTabWidget.Rounded)
         self.actionImport = QAction(MainWindow)
         self.actionImport.setObjectName(u"actionImport")
         self.actionExport = QAction(MainWindow)
@@ -68,6 +70,7 @@ class Ui_MainWindow(object):
         self.settingsButton.setSizePolicy(sizePolicy)
         self.settingsButton.setMinimumSize(QSize(0, 0))
         self.settingsButton.setMaximumSize(QSize(30, 16777215))
+        self.settingsButton.setStyleSheet(u"margin-right:5;")
         icon = QIcon()
         icon.addFile(u":/icons/icons/gear.png", QSize(), QIcon.Normal, QIcon.Off)
         self.settingsButton.setIcon(icon)
@@ -322,12 +325,24 @@ class Ui_MainWindow(object):
 
         self.main_horizontalLayout.addLayout(self.left_verticalLayout)
 
-        self.comboBox = QComboBox(self.centralwidget)
-        self.comboBox.setObjectName(u"comboBox")
-        self.comboBox.setMinimumSize(QSize(250, 25))
-        self.comboBox.setStyleSheet(u"background-color:#3D3D3D;border: none;margin-left:9;")
+        self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.groupBox_2 = QGroupBox(self.centralwidget)
+        self.groupBox_2.setObjectName(u"groupBox_2")
+        self.groupBox_2.setMinimumSize(QSize(250, 0))
+        self.groupBox_2.setStyleSheet(u"background-color:#242424;border: none;")
+        self.lineEdit_2 = QLineEdit(self.groupBox_2)
+        self.lineEdit_2.setObjectName(u"lineEdit_2")
+        self.lineEdit_2.setGeometry(QRect(0, 0, 250, 35))
+        self.lineEdit_2.setMinimumSize(QSize(0, 35))
+        self.lineEdit_2.setSizeIncrement(QSize(0, 35))
+        self.lineEdit_2.setBaseSize(QSize(0, 35))
+        self.lineEdit_2.setStyleSheet(u"background-color:#383838;margin:5;border-radius:5;")
 
-        self.main_horizontalLayout.addWidget(self.comboBox, 0, Qt.AlignTop)
+        self.verticalLayout.addWidget(self.groupBox_2)
+
+
+        self.main_horizontalLayout.addLayout(self.verticalLayout)
 
 
         self.verticalLayout_2.addLayout(self.main_horizontalLayout)
@@ -335,7 +350,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 888, 22))
+        self.menubar.setGeometry(QRect(0, 0, 890, 22))
         self.menuFile = QMenu(self.menubar)
         self.menuFile.setObjectName(u"menuFile")
         self.menuHelp = QMenu(self.menubar)
@@ -413,6 +428,7 @@ class Ui_MainWindow(object):
         self.textButton.setToolTip(QCoreApplication.translate("MainWindow", u"Text vertical alignment", None))
 #endif // QT_CONFIG(tooltip)
         self.textButton.setText("")
+        self.groupBox_2.setTitle("")
         self.menuFile.setTitle(QCoreApplication.translate("MainWindow", u"File", None))
         self.menuHelp.setTitle(QCoreApplication.translate("MainWindow", u"Help", None))
     # retranslateUi
