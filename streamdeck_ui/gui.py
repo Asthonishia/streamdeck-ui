@@ -26,21 +26,18 @@ BUTTON_STYLE = """
     QToolButton {
     border: 2px solid #444444;
     border-radius: 8px;
-    background-color: #2D2D2D;
-    border-style: outset;}
+    background-color: #000;}
     QToolButton:checked {
     border: 2px solid #2751E4;
     border-radius: 8px;
-    background-color: #2D2D2D;
-    border-style: outset;}
+    background-color: #2D2D2D;}
 """
 
 BUTTON_DRAG_STYLE = """
     QToolButton {
     border: 2px solid #2751E4;
     border-radius: 8px;
-    background-color: #2D2D2D;
-    border-style: outset;}
+    background-color: #2D2D2D;}
 """
 
 selected_button: Optional[QtWidgets.QToolButton] = None
@@ -464,7 +461,7 @@ def build_buttons(ui, tab) -> None:
     # This is effectively a "blank tab"
     base_widget = QtWidgets.QWidget(tab)
 
-    # Add an inner page (QtQidget) to the page
+    # Add an inner page (QtWidget) to the page
     tab.children()[0].addWidget(base_widget)
 
     # Set a property - this allows us to check later
@@ -530,7 +527,7 @@ def build_device(ui, _device_index=None) -> None:
     """
     style = ""
     if ui.device_list.count() > 0:
-        style = "background-color: black"
+        style = "background-color: #2C2C2C"
 
     for page_id in range(ui.pages.count()):
         page = ui.pages.widget(page_id)
