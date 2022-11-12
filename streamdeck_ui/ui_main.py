@@ -57,7 +57,7 @@ class Ui_MainWindow(object):
         self.device_list = QComboBox(self.centralwidget)
         self.device_list.setObjectName(u"device_list")
         self.device_list.setMinimumSize(QSize(580, 25))
-        self.device_list.setStyleSheet(u"background-color:#3D3D3D;border: none;")
+        self.device_list.setStyleSheet(u"background-color:#2C2C2C;border: none;")
 
         self.deviceSettings_horizontalLayout.addWidget(self.device_list)
 
@@ -70,10 +70,12 @@ class Ui_MainWindow(object):
         self.settingsButton.setSizePolicy(sizePolicy)
         self.settingsButton.setMinimumSize(QSize(0, 0))
         self.settingsButton.setMaximumSize(QSize(30, 16777215))
-        self.settingsButton.setStyleSheet(u"margin-right:5;")
+        self.settingsButton.setLayoutDirection(Qt.LeftToRight)
+        self.settingsButton.setStyleSheet(u"border:none;margin-left:5;margin-right:5;color: #999998;")
         icon = QIcon()
         icon.addFile(u":/icons/icons/gear.png", QSize(), QIcon.Normal, QIcon.Off)
         self.settingsButton.setIcon(icon)
+        self.settingsButton.setIconSize(QSize(20, 20))
 
         self.deviceSettings_horizontalLayout.addWidget(self.settingsButton)
 
@@ -350,6 +352,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
+        self.menubar.setEnabled(True)
         self.menubar.setGeometry(QRect(0, 0, 890, 22))
         self.menuFile = QMenu(self.menubar)
         self.menuFile.setObjectName(u"menuFile")
@@ -392,7 +395,7 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Stream Deck UI", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"STREAM DECK UI", None))
         self.actionImport.setText(QCoreApplication.translate("MainWindow", u"Import", None))
         self.actionExport.setText(QCoreApplication.translate("MainWindow", u"Export", None))
         self.actionExit.setText(QCoreApplication.translate("MainWindow", u"Exit", None))

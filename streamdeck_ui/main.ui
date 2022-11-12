@@ -17,7 +17,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Stream Deck UI</string>
+   <string>STREAM DECK UI</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: #2C2C2C;
@@ -91,7 +91,7 @@ color: #FFF;</string>
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color:#3D3D3D;border: none;</string>
+             <string notr="true">background-color:#2C2C2C;border: none;</string>
             </property>
            </widget>
           </item>
@@ -115,8 +115,11 @@ color: #FFF;</string>
               <height>16777215</height>
              </size>
             </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
             <property name="styleSheet">
-             <string notr="true">margin-right:5;</string>
+             <string notr="true">border:none;margin-left:5;margin-right:5;color: #999998;</string>
             </property>
             <property name="text">
              <string/>
@@ -124,6 +127,12 @@ color: #FFF;</string>
             <property name="icon">
              <iconset resource="resources.qrc">
               <normaloff>:/icons/icons/gear.png</normaloff>:/icons/icons/gear.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
             </property>
            </widget>
           </item>
@@ -682,6 +691,9 @@ border-bottom-color: #1C1C1C;</string>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>0</x>
