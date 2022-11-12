@@ -12,13 +12,15 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
-from  . import resources_rc
+import resources_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(940, 490)
+        MainWindow.resize(1258, 768)
+        MainWindow.setStyleSheet(u"background-color: #2C2C2C;\n"
+"color: #FFF;")
         self.actionImport = QAction(MainWindow)
         self.actionImport.setObjectName(u"actionImport")
         self.actionExport = QAction(MainWindow)
@@ -39,20 +41,21 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(9, -1, -1, 3)
         self.main_horizontalLayout = QHBoxLayout()
-        self.main_horizontalLayout.setSpacing(12)
+        self.main_horizontalLayout.setSpacing(0)
         self.main_horizontalLayout.setObjectName(u"main_horizontalLayout")
         self.main_horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.left_verticalLayout = QVBoxLayout()
-        self.left_verticalLayout.setSpacing(6)
+        self.left_verticalLayout.setSpacing(0)
         self.left_verticalLayout.setObjectName(u"left_verticalLayout")
         self.left_verticalLayout.setSizeConstraint(QLayout.SetDefaultConstraint)
         self.left_verticalLayout.setContentsMargins(-1, 0, -1, -1)
         self.deviceSettings_horizontalLayout = QHBoxLayout()
         self.deviceSettings_horizontalLayout.setObjectName(u"deviceSettings_horizontalLayout")
-        self.deviceSettings_horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.deviceSettings_horizontalLayout.setContentsMargins(0, 0, 0, 6)
         self.device_list = QComboBox(self.centralwidget)
         self.device_list.setObjectName(u"device_list")
-        self.device_list.setMinimumSize(QSize(400, 0))
+        self.device_list.setMinimumSize(QSize(920, 25))
+        self.device_list.setStyleSheet(u"background-color:#3D3D3D;border: none;")
 
         self.deviceSettings_horizontalLayout.addWidget(self.device_list)
 
@@ -71,36 +74,24 @@ class Ui_MainWindow(object):
 
         self.deviceSettings_horizontalLayout.addWidget(self.settingsButton)
 
-        self.cpu_usage = QProgressBar(self.centralwidget)
-        self.cpu_usage.setObjectName(u"cpu_usage")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Expanding)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.cpu_usage.sizePolicy().hasHeightForWidth())
-        self.cpu_usage.setSizePolicy(sizePolicy1)
-        self.cpu_usage.setMaximumSize(QSize(25, 25))
-        self.cpu_usage.setMaximum(130)
-        self.cpu_usage.setValue(0)
-        self.cpu_usage.setOrientation(Qt.Vertical)
-
-        self.deviceSettings_horizontalLayout.addWidget(self.cpu_usage)
-
 
         self.left_verticalLayout.addLayout(self.deviceSettings_horizontalLayout)
 
         self.pages = QTabWidget(self.centralwidget)
         self.pages.setObjectName(u"pages")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.pages.sizePolicy().hasHeightForWidth())
-        self.pages.setSizePolicy(sizePolicy2)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.pages.sizePolicy().hasHeightForWidth())
+        self.pages.setSizePolicy(sizePolicy1)
+        self.pages.setMinimumSize(QSize(0, 470))
         self.pages.setAutoFillBackground(False)
-        self.pages.setStyleSheet(u"b")
+        self.pages.setStyleSheet(u"background-color:#2C2C2C;border: none;")
         self.page_1 = QWidget()
         self.page_1.setObjectName(u"page_1")
         self.gridLayout_2 = QGridLayout(self.page_1)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.gridLayout_2.setContentsMargins(9, 9, 9, 9)
         self.pages.addTab(self.page_1, "")
         self.page_2 = QWidget()
         self.page_2.setObjectName(u"page_2")
@@ -150,21 +141,19 @@ class Ui_MainWindow(object):
 
         self.left_verticalLayout.addWidget(self.pages)
 
-        self.left_verticalLayout.setStretch(1, 1)
-
-        self.main_horizontalLayout.addLayout(self.left_verticalLayout)
-
-        self.right_horizontalLayout = QHBoxLayout()
-        self.right_horizontalLayout.setObjectName(u"right_horizontalLayout")
         self.groupBox = QGroupBox(self.centralwidget)
         self.groupBox.setObjectName(u"groupBox")
-        self.groupBox.setMinimumSize(QSize(250, 0))
+        self.groupBox.setMinimumSize(QSize(920, 0))
+        self.groupBox.setStyleSheet(u"background-color: #292929;border: none;")
         self.verticalLayout_3 = QVBoxLayout(self.groupBox)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.formLayout = QFormLayout()
         self.formLayout.setObjectName(u"formLayout")
+        self.formLayout.setContentsMargins(10, 20, 10, 20)
         self.label = QLabel(self.groupBox)
         self.label.setObjectName(u"label")
+        self.label.setStyleSheet(u"color: #818079")
 
         self.formLayout.setWidget(0, QFormLayout.LabelRole, self.label)
 
@@ -173,16 +162,18 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.imageButton = QPushButton(self.groupBox)
         self.imageButton.setObjectName(u"imageButton")
+        self.imageButton.setMinimumSize(QSize(0, 25))
+        self.imageButton.setStyleSheet(u"background-color:#3D3D3D;border: none;")
 
         self.horizontalLayout_2.addWidget(self.imageButton)
 
         self.removeButton = QPushButton(self.groupBox)
         self.removeButton.setObjectName(u"removeButton")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.removeButton.sizePolicy().hasHeightForWidth())
-        self.removeButton.setSizePolicy(sizePolicy3)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.removeButton.sizePolicy().hasHeightForWidth())
+        self.removeButton.setSizePolicy(sizePolicy2)
         self.removeButton.setMaximumSize(QSize(30, 16777215))
         icon1 = QIcon()
         icon1.addFile(u":/icons/icons/cross.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -195,21 +186,26 @@ class Ui_MainWindow(object):
 
         self.label_2 = QLabel(self.groupBox)
         self.label_2.setObjectName(u"label_2")
+        self.label_2.setStyleSheet(u"color: #818079")
 
         self.formLayout.setWidget(1, QFormLayout.LabelRole, self.label_2)
 
         self.label_3 = QLabel(self.groupBox)
         self.label_3.setObjectName(u"label_3")
+        self.label_3.setStyleSheet(u"color: #818079")
 
         self.formLayout.setWidget(2, QFormLayout.LabelRole, self.label_3)
 
         self.command = QLineEdit(self.groupBox)
         self.command.setObjectName(u"command")
+        self.command.setMinimumSize(QSize(0, 25))
+        self.command.setStyleSheet(u"background-color:#3D3D3D;border: none;")
 
         self.formLayout.setWidget(2, QFormLayout.FieldRole, self.command)
 
         self.label_5 = QLabel(self.groupBox)
         self.label_5.setObjectName(u"label_5")
+        self.label_5.setStyleSheet(u"color: #818079")
 
         self.formLayout.setWidget(3, QFormLayout.LabelRole, self.label_5)
 
@@ -231,17 +227,22 @@ class Ui_MainWindow(object):
         self.keys.addItem(u"media_next")
         self.keys.addItem(u"media_play_pause")
         self.keys.setObjectName(u"keys")
+        self.keys.setMinimumSize(QSize(0, 25))
+        self.keys.setStyleSheet(u"background-color:#3D3D3D;border: none;")
         self.keys.setEditable(True)
 
         self.formLayout.setWidget(3, QFormLayout.FieldRole, self.keys)
 
         self.label_8 = QLabel(self.groupBox)
         self.label_8.setObjectName(u"label_8")
+        self.label_8.setStyleSheet(u"color: #818079")
 
         self.formLayout.setWidget(4, QFormLayout.LabelRole, self.label_8)
 
         self.switch_page = QSpinBox(self.groupBox)
         self.switch_page.setObjectName(u"switch_page")
+        self.switch_page.setMinimumSize(QSize(0, 25))
+        self.switch_page.setStyleSheet(u"background-color:#3D3D3D;border: none;")
         self.switch_page.setMinimum(0)
         self.switch_page.setMaximum(10)
         self.switch_page.setValue(0)
@@ -250,22 +251,27 @@ class Ui_MainWindow(object):
 
         self.label_7 = QLabel(self.groupBox)
         self.label_7.setObjectName(u"label_7")
+        self.label_7.setStyleSheet(u"color: #818079")
 
         self.formLayout.setWidget(5, QFormLayout.LabelRole, self.label_7)
 
         self.change_brightness = QSpinBox(self.groupBox)
         self.change_brightness.setObjectName(u"change_brightness")
+        self.change_brightness.setMinimumSize(QSize(0, 25))
+        self.change_brightness.setStyleSheet(u"background-color:#3D3D3D;border: none;")
         self.change_brightness.setMinimum(-99)
 
         self.formLayout.setWidget(5, QFormLayout.FieldRole, self.change_brightness)
 
         self.label_6 = QLabel(self.groupBox)
         self.label_6.setObjectName(u"label_6")
+        self.label_6.setStyleSheet(u"color: #818079")
 
         self.formLayout.setWidget(6, QFormLayout.LabelRole, self.label_6)
 
         self.write = QPlainTextEdit(self.groupBox)
         self.write.setObjectName(u"write")
+        self.write.setStyleSheet(u"background-color:#3D3D3D;border: none;")
 
         self.formLayout.setWidget(6, QFormLayout.FieldRole, self.write)
 
@@ -273,6 +279,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.text = QLineEdit(self.groupBox)
         self.text.setObjectName(u"text")
+        self.text.setMinimumSize(QSize(0, 25))
+        self.text.setStyleSheet(u"background-color:#3D3D3D;border: none;")
 
         self.horizontalLayout_3.addWidget(self.text)
 
@@ -293,10 +301,18 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.addLayout(self.formLayout)
 
 
-        self.right_horizontalLayout.addWidget(self.groupBox)
+        self.left_verticalLayout.addWidget(self.groupBox)
 
+        self.left_verticalLayout.setStretch(1, 1)
 
-        self.main_horizontalLayout.addLayout(self.right_horizontalLayout)
+        self.main_horizontalLayout.addLayout(self.left_verticalLayout)
+
+        self.comboBox = QComboBox(self.centralwidget)
+        self.comboBox.setObjectName(u"comboBox")
+        self.comboBox.setMinimumSize(QSize(280, 25))
+        self.comboBox.setStyleSheet(u"background-color:#3D3D3D;border: none;margin-left:6;")
+
+        self.main_horizontalLayout.addWidget(self.comboBox, 0, Qt.AlignTop)
 
 
         self.verticalLayout_2.addLayout(self.main_horizontalLayout)
@@ -304,7 +320,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 940, 22))
+        self.menubar.setGeometry(QRect(0, 0, 1258, 22))
         self.menuFile = QMenu(self.menubar)
         self.menuFile.setObjectName(u"menuFile")
         self.menuHelp = QMenu(self.menubar)
@@ -312,6 +328,7 @@ class Ui_MainWindow(object):
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
+        self.statusbar.setEnabled(True)
         MainWindow.setStatusBar(self.statusbar)
         QWidget.setTabOrder(self.device_list, self.settingsButton)
         QWidget.setTabOrder(self.settingsButton, self.pages)
@@ -338,7 +355,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.pages.setCurrentIndex(0)
+        self.pages.setCurrentIndex(9)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -353,7 +370,6 @@ class Ui_MainWindow(object):
         self.actionGithub.setText(QCoreApplication.translate("MainWindow", u"Github", None))
         self.actionAbout.setText(QCoreApplication.translate("MainWindow", u"About...", None))
         self.settingsButton.setText("")
-        self.cpu_usage.setFormat("")
         self.pages.setTabText(self.pages.indexOf(self.page_1), QCoreApplication.translate("MainWindow", u"Page 1", None))
         self.pages.setTabText(self.pages.indexOf(self.page_2), QCoreApplication.translate("MainWindow", u"2", None))
         self.pages.setTabText(self.pages.indexOf(self.page_3), QCoreApplication.translate("MainWindow", u"3", None))
@@ -364,7 +380,7 @@ class Ui_MainWindow(object):
         self.pages.setTabText(self.pages.indexOf(self.page_8), QCoreApplication.translate("MainWindow", u"8", None))
         self.pages.setTabText(self.pages.indexOf(self.page_9), QCoreApplication.translate("MainWindow", u"9", None))
         self.pages.setTabText(self.pages.indexOf(self.tab_10), QCoreApplication.translate("MainWindow", u"10", None))
-        self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"Configure Button", None))
+        self.groupBox.setTitle("")
         self.label.setText(QCoreApplication.translate("MainWindow", u"Image:", None))
         self.imageButton.setText(QCoreApplication.translate("MainWindow", u"Image...", None))
 #if QT_CONFIG(tooltip)

@@ -22,7 +22,13 @@ class DisplayGrid:
     _empty_filter: EmptyFilter = EmptyFilter()
     "Static instance of EmptyFilter shared by all pipelines"
 
-    def __init__(self, lock: threading.Lock, streamdeck: StreamDeck, pages: int, cpu_callback: Callable[[str, int], None], fps: int = 25):
+    def __init__(
+            self,
+            lock: threading.Lock,
+            streamdeck: StreamDeck,
+            pages: int,
+            fps: int = 25
+    ):
         """Creates a new display instance
 
         :param lock: A lock object that will be used to get exclusive access while enumerating
@@ -33,8 +39,6 @@ class DisplayGrid:
         :type streamdeck: StreamDeck
         :param pages: The number of logical pages (screen sets)
         :type pages: int
-        :param cpu_callback: A function to call whenever the CPU changes
-        :type cpu_callback: Callable[[str, int], None]
         :param fps: The desired FPS, defaults to 25
         :type fps: int, optional
         """
@@ -62,7 +66,6 @@ class DisplayGrid:
         self.time_per_frame = 1 / fps
         self.lock = lock
         self.sync = threading.Event()
-        self.cpu_callback = cpu_callback
         # The sync event allows a caller to wait until all the buttons have been processed
         DisplayGrid._empty_filter.initialize(self.size)
 
@@ -187,9 +190,6 @@ class DisplayGrid:
 
             frames += 1
             if time() - start > 1.0:
-                execution_time_ms = int(execution_time * 1000)
-                if self.cpu_callback:
-                    self.cpu_callback(self.serial_number, int(execution_time_ms / 1000 * 100))
                 # execution_time_ms = int(execution_time * 1000)
                 # print(f"FPS: {frames} Execution time: {execution_time_ms} ms Execution %: {int(execution_time_ms/1000 * 100)}")
                 # print(f"Output cache size: {len(frame_cache)}")

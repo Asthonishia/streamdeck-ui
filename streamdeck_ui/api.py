@@ -29,8 +29,8 @@ class StreamDeckSignalEmitter(QObject):
     attached = Signal(dict)
     "A signal that is raised whenever a new StreamDeck is attached."
     detached = Signal(str)
-    "A signal that is raised whenever a StreamDeck is detached. "
-    cpu_changed = Signal(str, int)
+    # "A signal that is raised whenever a StreamDeck is detached. "
+    # cpu_changed = Signal(str, int)
 
 
 class StreamDeckServer:
@@ -110,16 +110,6 @@ class StreamDeckServer:
                 dimmer.dim()
             else:
                 dimmer.dim(True)
-
-    def cpu_usage_callback(self, serial_number: str, cpu_usage: int):
-        """An internal method that takes emits a signal on a QObject.
-
-        :param serial_number: The Stream Deck serial number
-        :type serial_number: str
-        :param cpu_usage: The current CPU usage
-        :type cpu_usage: int
-        """
-        self.plugevents.cpu_changed.emit(serial_number, cpu_usage)
 
     def _key_change_callback(self, deck_id: str, _deck: StreamDeck.StreamDeck, key: int, state: bool) -> None:
         """Callback whenever a key is pressed.
@@ -473,7 +463,7 @@ class StreamDeckServer:
             # the type hinting is defined causes it to believe there *may* not be a list
             pages = len(deck_state["buttons"])  # type: ignore
 
-            display_handler = self.display_handlers.get(serial_number, DisplayGrid(self.lock, deck, pages, self.cpu_usage_callback))
+            display_handler = self.display_handlers.get(serial_number, DisplayGrid(self.lock, deck, pages))
             display_handler.set_page(self.get_page(deck_id))
             self.display_handlers[serial_number] = display_handler
 
