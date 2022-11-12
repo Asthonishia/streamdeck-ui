@@ -12,6 +12,7 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
+import resources_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -40,7 +41,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_2 = QVBoxLayout(self.centralwidget)
         self.verticalLayout_2.setSpacing(6)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.verticalLayout_2.setContentsMargins(9, -1, -1, 3)
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.main_horizontalLayout = QHBoxLayout()
         self.main_horizontalLayout.setSpacing(0)
         self.main_horizontalLayout.setObjectName(u"main_horizontalLayout")
