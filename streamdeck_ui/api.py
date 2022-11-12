@@ -143,11 +143,13 @@ class StreamDeckServer:
             config = json.loads(state_file.read())
             file_version = config.get("streamdeck_ui_version", 0)
             if file_version != CONFIG_FILE_VERSION:
-                raise ValueError("Incompatible version of config file found: " f"{file_version} does not match required version " f"{CONFIG_FILE_VERSION}.")
+                raise ValueError("Incompatible version of config file "
+                                 "found: " f"{file_version} does not match required version " f"{CONFIG_FILE_VERSION}.")
 
             self.state = {}
             for deck_id, deck in config["state"].items():
-                deck["buttons"] = {int(page_id): {int(button_id): button for button_id, button in buttons.items()} for page_id, buttons in deck.get("buttons", {}).items()}
+                deck["buttons"] = {int(page_id): {int(button_id): button for button_id, button in buttons.items()}
+                                   for page_id, buttons in deck.get("buttons", {}).items()}
                 self.state[deck_id] = deck
 
     def import_config(self, config_file: str) -> None:
@@ -159,7 +161,11 @@ class StreamDeckServer:
     def export_config(self, output_file: str) -> None:
         try:
             with open(output_file + ".tmp", "w") as state_file:
-                state_file.write(json.dumps({"streamdeck_ui_version": CONFIG_FILE_VERSION, "state": self.state}, indent=4, separators=(",", ": ")))
+                state_file.write(json.dumps(
+                    {"streamdeck_ui_version": CONFIG_FILE_VERSION, "state": self.state},
+                    indent=4,
+                    separators=(",", ": ")
+                ))
         except Exception as error:
             print(f"The configuration file '{output_file}' was not updated. Error: {error}")
             raise
@@ -187,7 +193,12 @@ class StreamDeckServer:
         )
         self.dimmers[serial_number].reset()
 
-        self.plugevents.attached.emit({"id": streamdeck_id, "serial_number": serial_number, "type": streamdeck.deck_type(), "layout": streamdeck.key_layout()})
+        self.plugevents.attached.emit({
+            "id": streamdeck_id,
+            "serial_number": serial_number,
+            "type": streamdeck.deck_type(),
+            "layout": streamdeck.key_layout()
+        })
 
     def initialize_state(self, serial_number: str, buttons: int):
         """Initializes the state for the given serial number. This allocates
@@ -255,7 +266,9 @@ class StreamDeckServer:
     def swap_buttons(self, deck_id: str, page: int, source_button: int, target_button: int) -> None:
         """Swaps the properties of the source and target buttons"""
         temp = cast(dict, self.state[deck_id]["buttons"])[page][source_button]
-        cast(dict, self.state[deck_id]["buttons"])[page][source_button] = cast(dict, self.state[deck_id]["buttons"])[page][target_button]
+        cast(dict, self.state[deck_id]["buttons"])[page][source_button] = cast(
+            dict, self.state[deck_id]["buttons"]
+        )[page][target_button]
         cast(dict, self.state[deck_id]["buttons"])[page][target_button] = temp
         self._save_state()
 
